@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static int	exit_error(char *str)
+int	exit_error(char *str)
 {
 	ft_printf("Error\n%s\n", str);
 	return (-1);
@@ -29,5 +29,6 @@ void	check_fd(char	*filename)
 	line = get_next_line(fd);
 	if (!line)
 		return (exit_error("file is empty"));
+	close(fd);
 }
 
