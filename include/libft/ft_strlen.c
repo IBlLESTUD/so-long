@@ -6,18 +6,10 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:17:39 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/08 10:38:12 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/09 20:05:18 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+size_t	ft_strlen(const char *s);
