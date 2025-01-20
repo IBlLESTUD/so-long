@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/10 14:08:36 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:27:44 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 typedef struct	s_map 
 {
 	char	**map;
-	char	*line;
 	int		countcolone;
 }	t_map;
-int		exit_error(char *str);
-int		check_fd(t_map *map, char *filename);
-int		check_element(t_map *map);
-int		mapcpy(t_map *cpy, char *filname);
+
+void		exit_error(char *str);
+void		check_fd(t_map *map, char *filename);
+void		check_element(t_map *map);
+void		mapcpy(t_map *cpy, char *filname);
 
 #endif

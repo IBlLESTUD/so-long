@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 03:26:24 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/10 14:17:46 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:31:38 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	t_map *map;
+	t_map map;
+
+	// map = malloc(sizeof(t_map));
 	if (ac != 2)
 	{
 		ft_printf("ERROR\nits not 2 arguments");
@@ -25,6 +27,7 @@ int	main(int ac, char **av)
 		ft_printf("ERROR\nits not .ber\n");
 		return (0);
 	}
-	//check_element(&map);
-	mapcpy(map, "map.ber");
+	check_fd(&map, "map.ber");
+	mapcpy(&map, "map.ber");
+	check_element(&map);
 }
