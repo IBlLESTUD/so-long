@@ -6,11 +6,11 @@
 #    By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/07 19:39:14 by nglaizau          #+#    #+#              #
-#    Updated: 2025/01/10 08:26:00 by nglaizau         ###   ########.fr        #
+#    Updated: 2025/01/23 10:50:18 by nglaizau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = so_long.c check_map.c main.c map.c
+SRCS = so_long.c check_map.c main.c map.c check_map2.c
 OBJS = ${SRCS:.c=.o}
 NAME = so_long
 CC = gcc

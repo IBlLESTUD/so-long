@@ -64,9 +64,11 @@ void	check_element(t_map *map)
 {
 	int	i;
 	int	j;
+	int e;
 
 	i = 0;
 	j = 0;
+	e = 0;
 	while (map->map[j])
 	{
 		i = 0;
@@ -78,4 +80,30 @@ void	check_element(t_map *map)
 		}
 		j++;
 	}
+	if (e != 1)
+		return (exit_error("invlid map"));
+}
+
+void	check_element2(t_map *map)
+{
+	int	i;
+	int	j;
+	int	c;
+
+	i = 0;
+	j = 0;
+	c = 0;
+	while (map->map[j])
+	{
+		i = 0;
+		while (map->map[j][i])
+		{
+			if (map->map[j][i] != 'C')
+				c++;
+			i++;
+		}
+		j++;
+	}
+	if (c < 1)
+		return (exit_error("invalin map"));
 }
