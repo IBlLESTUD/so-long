@@ -53,6 +53,7 @@ void	mapcpy(t_map *cpy, char *filname)
 	while (line)
 	{
 		cpy->map[i] = ft_strdup(line);
+		//ft_printf("%s\n", cpy->map[i]);
 		i++;
 		free(line);
 		line = get_next_line(fd);
@@ -77,11 +78,13 @@ void	check_element(t_map *map)
 			if (map->map[j][i] != '1' && map->map[j][i] != '0' && map->map[j][i] != 'E' && map->map[j][i] != 'P' && map->map[j][i] !='C' && map->map[j][i] != '\n')
 				return (exit_error("invalid map"));
 			i++;
+		if (map->map[j][i] == 'E')
+				e++;
 		}
 		j++;
 	}
 	if (e != 1)
-		return (exit_error("invlid map"));
+		return (exit_error("invlid Map"));
 }
 
 void	check_element2(t_map *map)

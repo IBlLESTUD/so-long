@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/23 10:49:58 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:39:37 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ typedef struct	s_map
 {
 	char	**map;
 	int		countcolone;
-	int		collectible;
-	int		position;
-	int		exit;
 }	t_map;
 
 void		exit_error(char *str);
@@ -37,4 +34,6 @@ void		check_element(t_map *map);
 void		mapcpy(t_map *cpy, char *filname);
 void		check_element2(t_map *map);
 void		check_element3(t_map *map);
+void		checkWall(t_map *map);
+void		checkWall2(t_map *map);
 #endif
