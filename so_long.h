@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/23 16:39:37 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:50:14 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void		check_element2(t_map *map);
 void		check_element3(t_map *map);
 void		checkWall(t_map *map);
 void		checkWall2(t_map *map);
+void		ft_is_a_recantgle(t_map *map);
 #endif

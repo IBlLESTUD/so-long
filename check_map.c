@@ -101,7 +101,7 @@ void	check_element2(t_map *map)
 		i = 0;
 		while (map->map[j][i])
 		{
-			if (map->map[j][i] != 'C')
+			if (map->map[j][i] == 'C')
 				c++;
 			i++;
 		}

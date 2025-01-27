@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 03:26:24 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/23 16:39:22 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:46:50 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main(int ac, char **av)
 	check_element2(&map);
 	check_element3(&map);
 	checkWall(&map);
+	ft_is_a_recantgle(&map);
 	checkWall2(&map);
 }
