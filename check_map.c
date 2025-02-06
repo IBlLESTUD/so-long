@@ -36,7 +36,7 @@ void	check_fd(t_map *map, char *filename)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	}
+}
 
 void	mapcpy(t_map *cpy, char *filname)
 {
@@ -53,7 +53,7 @@ void	mapcpy(t_map *cpy, char *filname)
 	while (line)
 	{
 		cpy->map[i] = ft_strdup(line);
-		//ft_printf("%s\n", cpy->map[i]);
+		ft_printf("%s\n", cpy->map[i]);
 		i++;
 		free(line);
 		line = get_next_line(fd);

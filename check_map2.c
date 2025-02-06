@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:35:44 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/27 16:14:46 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:54:17 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,41 +78,38 @@ void	checkWall2(t_map *map)
 	{
 		i++;
 	}
-	 i--;
+	i--;
+	//ft_printf("%d\n", i);
 	while (map->map[j])
 	{
 		if ((map->map[j][i] != '1'))
 			return (exit_error("lack of Wwall"));
 		j++;
-		//ft_printf("%d\n", i);
-		//printf("%d\n", j);
 	}
 }
-void	ft_is_a_recantgle(t_map *map)
+void	ft_is_a_rectangle(t_map *map)
 {
 	int	i;
 	int	j;
 	int	t;
-	
+
 	i = 0;
 	j = 0;
 	t = 0;
-	while (map->map[j][i] != '\n')
+	while (map->map[j][i] !='\n')
 		i++;
 	j = 1;
-	while (map->map[j][t])
+	while (map->map[j] && map->map[j][t] != '\n')
 	{
 		t++;
 		if (map->map[j][t] == '\n' || map->map[j][t] == '\0')
-		{	
-			// ft_printf("%d\n", t);
-			// ft_printf("%d pour i \n", i);
+		{
 			if (t != i)
 				return (exit_error("is not a rectangle"));
 			j++;
 			t = 0;
-			//ft_printf("%d", j);
 		}
+		// ft_printf("%d", t);
+		// ft_printf("%d", i);
 	}
 }
-
