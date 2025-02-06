@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/06 17:34:41 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/06 18:17:53 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void		check_element3(t_map *map);
 void		checkWall(t_map *map);
 void		checkWall2(t_map *map);
 void		ft_is_a_rectangle(t_map *map);
-//void		check_starting_point(t_map *cpy);
+void		check_starting_point(t_map *cpy);
 #endif
