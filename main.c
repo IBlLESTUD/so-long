@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 03:26:24 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/06 18:28:50 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:37:17 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	main(int ac, char **av)
 	ft_is_a_rectangle(&map);
 	checkWall2(&map);
 	check_starting_point(&map);
-
+	temp_map(&map, "map.ber");
 }
