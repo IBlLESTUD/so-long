@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:18:14 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/07 15:15:59 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:28:02 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void		check_starting_point(t_map *cpy)
 void	temp_map(t_map *cpy, char *filname)
 {
 	int	fd;
-	int	i;
+	int	j;
 	char	*line;
 
-	i = 0;
+	j = 0;
 	fd = open(filname, O_RDONLY);
 	cpy->map_temp = malloc(sizeof(char *) * (cpy->countcolone + 1));
 	if (!cpy->map_temp)
@@ -54,24 +54,26 @@ void	temp_map(t_map *cpy, char *filname)
 	line = get_next_line(fd);
 	while (line)
 	{
-		cpy->map_temp[i] = ft_strdup(line);
-		//ft_printf("%s\n", cpy->map_temp[i]);
-		i++;
+		cpy->map_temp[j] = ft_strdup(line);
+		ft_printf("%s\n", cpy->map_temp[j]);
+		j++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	cpy->map_temp[i] = NULL;
+	cpy->map_temp[j] = NULL;
 }
-void	flood_fil(t_map *map_temp)
+void	flood_fil(t_map *cpy, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	 while (map_temp->map_temp[j])
-	 {
-		
-	 }
-
+	if (j < 0 || i < 0 || j >= cpy->countcolone || 
+			i >= (int)ft_strlen(cpy->map_temp[j]) ||
+			cpy->map_temp[j][i] == '1'|| 
+			cpy->map_temp[j][i] == 'E'||
+			cpy->map_temp[j][i] == 'V')
+			return ;
+	cpy->map_temp[j][i] = 'V';
+	flood_fil(cpy, i + 1, j);
+	flood_fil(cpy, i - 1, j);
+	flood_fil(cpy, i, j + 1);
+	flood_fil(cpy, i, j - 1);
+	if ()
 }

@@ -41,10 +41,10 @@ void	check_fd(t_map *map, char *filename)
 void	mapcpy(t_map *cpy, char *filname)
 {
 	int	fd;
-	int	i;
+	int	j;
 	char	*line;
 
-	i = 0;
+	j = 0;
 	fd = open(filname, O_RDONLY);
 	cpy->map = malloc(sizeof(char *) * (cpy->countcolone + 1));
 	if (!cpy->map)
@@ -52,13 +52,13 @@ void	mapcpy(t_map *cpy, char *filname)
 	line = get_next_line(fd);
 	while (line)
 	{
-		cpy->map[i] = ft_strdup(line);
-		//ft_printf("%s\n", cpy->map[i]);
-		i++;
+		cpy->map[j] = ft_strdup(line);
+		//ft_printf("%s\n", cpy->map[j]);
+		j++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	cpy->map[i] = NULL;
+	cpy->map[j] = NULL;
 }
 
 void	check_element(t_map *map)
