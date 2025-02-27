@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:18:14 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/07 20:28:02 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:17:09 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void		check_starting_point(t_map *cpy)
 	
 	cpy->start_i = 0;
 	cpy->start_j = 0;
-	i = 0;
 	j = 0;
 	while (cpy->map[j])
 	{
@@ -55,7 +54,7 @@ void	temp_map(t_map *cpy, char *filname)
 	while (line)
 	{
 		cpy->map_temp[j] = ft_strdup(line);
-		ft_printf("%s\n", cpy->map_temp[j]);
+		//ft_printf("%s\n", cpy->map_temp[j]);
 		j++;
 		free(line);
 		line = get_next_line(fd);
@@ -67,7 +66,6 @@ void	flood_fil(t_map *cpy, int i, int j)
 	if (j < 0 || i < 0 || j >= cpy->countcolone || 
 			i >= (int)ft_strlen(cpy->map_temp[j]) ||
 			cpy->map_temp[j][i] == '1'|| 
-			cpy->map_temp[j][i] == 'E'||
 			cpy->map_temp[j][i] == 'V')
 			return ;
 	cpy->map_temp[j][i] = 'V';
@@ -75,5 +73,24 @@ void	flood_fil(t_map *cpy, int i, int j)
 	flood_fil(cpy, i - 1, j);
 	flood_fil(cpy, i, j + 1);
 	flood_fil(cpy, i, j - 1);
-	if ()
+}
+void	check_flood(t_map *cpy)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (cpy->map_temp[j])
+	{
+		i = 0;
+		while (cpy->map_temp[j][i])
+		{	
+			if (cpy->map_temp[j][i] == 'C')
+				return (exit_error("not all collectibles can be collected"));
+			//  if (cpy->map[j][i] == 'E')
+			// 	return (exit_error("the exit is not reachable"));
+			i++;
+		}
+		j++;
+	}
 }

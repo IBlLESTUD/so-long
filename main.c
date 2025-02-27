@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 03:26:24 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/07 20:19:27 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:14:03 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ int	main(int ac, char **av)
 	check_starting_point(&map);
 	temp_map(&map, "map.ber");
 	flood_fil(&map, map.start_i, map.start_j);
+	check_flood(&map);
+	int	i;
+
+	i = 0;
+	while (map.map_temp[i])
+	{
+		ft_printf(map.map_temp[i]);
+		i++;
+	}
+	
 }
