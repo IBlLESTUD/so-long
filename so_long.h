@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/27 19:13:43 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:35:54 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 # include "include/header/get_next_line.h"
 # include "include/header/libft.h"
 # include "include/header/ft_printf.h"
+# include <mlx.h>
 
-typedef struct	s_map 
+typedef struct s_map
 {
 	char	**map;
 	char	**map_temp;
@@ -30,18 +31,28 @@ typedef struct	s_map
 	int		start_i;
 	int		start_j;
 }	t_map;
-
+typedef struct s_game
+{
+	int 	height;
+	int		width;
+	void	*mlx;
+	char	**map;
+	void	*window;
+}	t_game;
 void		exit_error(char *str);
 void		check_fd(t_map *map, char *filename);
 void		check_element(t_map *map);
 void		mapcpy(t_map *cpy, char *filname);
 void		check_element2(t_map *map);
 void		check_element3(t_map *map);
-void		checkWall(t_map *map);
-void		checkWall2(t_map *map);
+void		check_wall(t_map *map);
+void		check_wall2(t_map *map);
 void		ft_is_a_rectangle(t_map *map);
 void		check_starting_point(t_map *cpy);
 void		temp_map(t_map *cpy, char *filname);
 void		flood_fil(t_map *cpy, int i, int j);
 void		check_flood(t_map *cpy);
+void		mlx_window(t_game *game, char **map);
+//void		all_collectible(t_map *cpy);
+
 #endif

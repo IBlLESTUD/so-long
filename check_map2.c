@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:35:44 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/05 19:54:17 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/03 08:45:19 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ void	check_element3(t_map *map)
 		}
 		j++;
 	}
-	if (p !=  1)
+	if (p != 1)
 		return (exit_error("invalid map"));
 }
-void	checkWall(t_map *map)
+
+void	check_wall(t_map *map)
 {
 	int	j;
 	int	i;
@@ -45,26 +46,26 @@ void	checkWall(t_map *map)
 	while (map->map[j][i])
 	{
 		if (map->map[j][i] != '1' && map->map[j][i] != '\n')
-			return exit_error("lack of wall");
+			return (exit_error("lack of wall"));
 		i++;
 	}
 	i = 0;
 	while (map->map[j])
 		j++;
 	j--;
-	//ft_printf("%d\n", j);
 	while (map->map[j][i])
-	{	
+	{
 		if (map->map[j][i] != '1' && map->map[j][i] != '\n')
-			return exit_error("lack of Wall");
+			return (exit_error("lack of Wall"));
 		i++;
 	}
 }
-void	checkWall2(t_map *map)
+
+void	check_wall2(t_map *map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
 	while (map->map[j])
@@ -79,7 +80,6 @@ void	checkWall2(t_map *map)
 		i++;
 	}
 	i--;
-	//ft_printf("%d\n", i);
 	while (map->map[j])
 	{
 		if ((map->map[j][i] != '1'))
@@ -87,6 +87,7 @@ void	checkWall2(t_map *map)
 		j++;
 	}
 }
+
 void	ft_is_a_rectangle(t_map *map)
 {
 	int	i;
@@ -96,7 +97,7 @@ void	ft_is_a_rectangle(t_map *map)
 	i = 0;
 	j = 0;
 	t = 0;
-	while (map->map[j][i] !='\n')
+	while (map->map[j][i] != '\n')
 		i++;
 	j = 1;
 	while (map->map[j] && map->map[j][t] != '\n')
@@ -109,7 +110,5 @@ void	ft_is_a_rectangle(t_map *map)
 			j++;
 			t = 0;
 		}
-		// ft_printf("%d", t);
-		// ft_printf("%d", i);
 	}
 }

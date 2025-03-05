@@ -6,17 +6,17 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:18:14 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/02/27 19:17:09 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/03 08:46:52 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void		check_starting_point(t_map *cpy)
+void	check_starting_point(t_map *cpy)
 {
 	int	i;
 	int	j;
-	
+
 	cpy->start_i = 0;
 	cpy->start_j = 0;
 	j = 0;
@@ -29,7 +29,7 @@ void		check_starting_point(t_map *cpy)
 			{
 				cpy->start_i = i;
 				cpy->start_j = j;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -37,43 +37,43 @@ void		check_starting_point(t_map *cpy)
 	}
 	if (cpy->start_i == 0 && cpy->start_j == 0)
 		return (exit_error("starting point doses not exist"));
-
 }
+
 void	temp_map(t_map *cpy, char *filname)
 {
-	int	fd;
-	int	j;
+	int		fd;
+	int		j;
 	char	*line;
 
 	j = 0;
 	fd = open(filname, O_RDONLY);
 	cpy->map_temp = malloc(sizeof(char *) * (cpy->countcolone + 1));
 	if (!cpy->map_temp)
-		return(exit_error("memory allocation failed\n"));
+		return (exit_error("memory allocation failed\n"));
 	line = get_next_line(fd);
 	while (line)
 	{
 		cpy->map_temp[j] = ft_strdup(line);
-		//ft_printf("%s\n", cpy->map_temp[j]);
 		j++;
 		free(line);
 		line = get_next_line(fd);
 	}
 	cpy->map_temp[j] = NULL;
 }
+
 void	flood_fil(t_map *cpy, int i, int j)
 {
-	if (j < 0 || i < 0 || j >= cpy->countcolone || 
-			i >= (int)ft_strlen(cpy->map_temp[j]) ||
-			cpy->map_temp[j][i] == '1'|| 
-			cpy->map_temp[j][i] == 'V')
-			return ;
+	if (j < 0 || i < 0 || j >= cpy->countcolone
+		|| i >= (int)ft_strlen(cpy->map_temp[j]) || cpy->map_temp[j][i] == '1'
+		|| cpy->map_temp[j][i] == 'E' || cpy->map_temp[j][i] == 'V')
+		return ;
 	cpy->map_temp[j][i] = 'V';
 	flood_fil(cpy, i + 1, j);
 	flood_fil(cpy, i - 1, j);
 	flood_fil(cpy, i, j + 1);
 	flood_fil(cpy, i, j - 1);
 }
+
 void	check_flood(t_map *cpy)
 {
 	int	i;
@@ -84,13 +84,41 @@ void	check_flood(t_map *cpy)
 	{
 		i = 0;
 		while (cpy->map_temp[j][i])
-		{	
+		{
 			if (cpy->map_temp[j][i] == 'C')
 				return (exit_error("not all collectibles can be collected"));
-			//  if (cpy->map[j][i] == 'E')
-			// 	return (exit_error("the exit is not reachable"));
+			if (cpy->map_temp[j][i] == 'E')
+			{
+				if (cpy->map_temp[j + 1][i] != 'V' && cpy->map_temp[j
+					- 1][i] != 'V' && cpy->map_temp[j][i + 1] != 'V'
+					&& cpy->map_temp[j][i - 1] != 'V')
+					return (exit_error("the exit is not reachable"));
+			}
 			i++;
 		}
 		j++;
 	}
 }
+// void	all_collectible(t_map *cpy)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	c;
+
+// 	i = 0;
+// 	j = 0;
+// 	c = 0;
+// 	while (cpy->map[j])
+// 	{
+// 		i = 0;
+// 		while (cpy->map[j][i])
+// 		{
+// 			if (cpy->map[j][i] == 'C')
+// 				c++;
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// 	if ('P' == 'C' )
+// 	ft_printf("%d", c);
+// }

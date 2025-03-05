@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 02:52:21 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/01/08 02:56:14 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/03 08:40:43 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	exit_error(char *str)
 
 void	check_fd(t_map *map, char *filename)
 {
-	int fd;
+	int		fd;
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
@@ -40,20 +40,19 @@ void	check_fd(t_map *map, char *filename)
 
 void	mapcpy(t_map *cpy, char *filname)
 {
-	int	fd;
-	int	j;
+	int		fd;
+	int		j;
 	char	*line;
 
 	j = 0;
 	fd = open(filname, O_RDONLY);
 	cpy->map = malloc(sizeof(char *) * (cpy->countcolone + 1));
 	if (!cpy->map)
-		return(exit_error("memory allocation failed\n"));
+		return (exit_error("memory allocation failed\n"));
 	line = get_next_line(fd);
 	while (line)
 	{
 		cpy->map[j] = ft_strdup(line);
-		//ft_printf("%s\n", cpy->map[j]);
 		j++;
 		free(line);
 		line = get_next_line(fd);
@@ -65,7 +64,7 @@ void	check_element(t_map *map)
 {
 	int	i;
 	int	j;
-	int e;
+	int	e;
 
 	i = 0;
 	j = 0;
@@ -75,10 +74,12 @@ void	check_element(t_map *map)
 		i = 0;
 		while (map->map[j][i])
 		{
-			if (map->map[j][i] != '1' && map->map[j][i] != '0' && map->map[j][i] != 'E' && map->map[j][i] != 'P' && map->map[j][i] !='C' && map->map[j][i] != '\n')
+			if (map->map[j][i] != '1' && map->map[j][i] != '0' &&
+				map->map[j][i] != 'E' && map->map[j][i] != 'P' &&
+				map->map[j][i] != 'C' && map->map[j][i] != '\n')
 				return (exit_error("invalid map"));
 			i++;
-		if (map->map[j][i] == 'E')
+			if (map->map[j][i] == 'E')
 				e++;
 		}
 		j++;
@@ -108,5 +109,5 @@ void	check_element2(t_map *map)
 		j++;
 	}
 	if (c < 1)
-		return (exit_error("invalin map"));
+		return (exit_error("invalid map"));
 }
