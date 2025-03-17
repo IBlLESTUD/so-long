@@ -6,7 +6,7 @@
 #    By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/07 19:39:14 by nglaizau          #+#    #+#              #
-#    Updated: 2025/03/03 09:12:32 by nglaizau         ###   ########.fr        #
+#    Updated: 2025/03/06 14:40:26 by nglaizau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,12 @@ OBJS = ${SRCS:.c=.o}
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
+MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 LIBFT = ./include
 INCLUDES = -I/usr/include -Imlx -Iincludes
+MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+
 
 all : ${NAME}
 

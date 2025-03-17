@@ -6,12 +6,13 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:09:33 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/03/05 22:35:54 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:30:20 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define ESC_KEY 65307
 
 # include <unistd.h>
 # include <stdio.h>
@@ -53,6 +54,7 @@ void		temp_map(t_map *cpy, char *filname);
 void		flood_fil(t_map *cpy, int i, int j);
 void		check_flood(t_map *cpy);
 void		mlx_window(t_game *game, char **map);
+//int			handle_keypress(int keycode);
 //void		all_collectible(t_map *cpy);
 
 #endif

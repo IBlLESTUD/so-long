@@ -6,7 +6,7 @@
 /*   By: nglaizau <nglaizau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 03:26:24 by nglaizau          #+#    #+#             */
-/*   Updated: 2025/03/05 22:43:12 by nglaizau         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:30:33 by nglaizau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int ac, char **av)
 	flood_fil(&map, map.start_i, map.start_j);
 	check_flood(&map);
 	mlx_window(&game, map.map);
+	//handle_keypress(&game);
+	mlx_loop(game.mlx);
 }
 //void ()
 // 	int	i;
@@ -47,7 +49,6 @@ int	main(int ac, char **av)
 // 	i = 0;
 // 	while (map.map_temp[i])
 // 	{
-// 		ft_printf(map.map_temp[i]);
 // 		i++;
 // 	}
 
